@@ -24,9 +24,11 @@
             </header>
             
             <main>
-                <ul class=" list-unstyled ">
+                <ul class=" list-unstyled">
                     <li v-for="elem in task">
-                        <span>{{elem.task}}</span>
+                        <span :class="{
+                            'text-decoration-line-through' : elem.status == true,
+                        }">{{elem.task}}</span>
                     </li>
                 </ul>
             </main>
