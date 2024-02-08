@@ -1,0 +1,22 @@
+[
+    {
+        "task" : "Fare la spesa",
+        "status": false
+    },
+    {
+        "task" : "Andare in palestra",
+        "status": true
+    },
+    {
+        "task" : "Pulire casa",
+        "status": true
+    },
+    {
+        "task" : "Leggere un libro",
+        "status": false
+    },
+    {
+        "task" : "Chiamare il commercialista",
+        "status": true
+    }
+]
