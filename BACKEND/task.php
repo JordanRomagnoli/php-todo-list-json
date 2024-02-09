@@ -1,7 +1,6 @@
 <?php
     $stringFromDb = file_get_contents('db.json');
     
-    $tasks = json_decode($stringFromDb, true);
 
 
    
