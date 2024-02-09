@@ -23,22 +23,32 @@
                 <main>
                     <ul class="pt-4  list-unstyled">
                         <li v-for="(elem, i) in task"
-                        class="mb-2 border border-1 border-black p-2 rounded-2 bg-light"
-                        @click="toggleDrop(i)"
+                        :key="i"
+                        class="mb-2 border border-1 border-black p-2 rounded-2 bg-light d-flex justify-content-between"
                         >
                             <span :class="{
                                 'text-decoration-line-through' : elem.status == true,
                                 '' : elem.status == false
                             }"
+                            @click="toggleDrop(i)"
                             >
                             {{elem.task}}
                             </span>
+
+                            <button type="button"
+                            class="border-0"
+                            @click="removeTodo(i)">
+                                X
+                            </button>
                         </li>
                     </ul>
 
                     <div>
-                        <input type="text" v-model="newTask">
+                        <input type="text" v-model="newTask"
+                        class="me-2 p-1 rounded border-1 "
+                        >
                         <button type="button"
+                        class="p-1 rounded border-1 "
                         @click="addTodo()">
                             Aggiungi
                         </button>
