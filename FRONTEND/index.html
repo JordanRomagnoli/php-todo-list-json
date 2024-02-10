@@ -26,20 +26,40 @@
                         :key="i"
                         class="mb-2 border border-1 border-black p-2 rounded-2 bg-light d-flex justify-content-between"
                         >
-                            <span :class="{
-                                'text-decoration-line-through' : elem.status == true,
-                                '' : elem.status == false
-                            }"
+                            <span v-if="editingIndex !== i" 
+                            :class="{
+                                'text-decoration-line-through': elem.status == true,
+                                '': elem.status == false,
+                                'd-none': trueTask == false,
+                            }"  
                             @click="toggleDrop(i)"
                             >
                             {{elem.task}}
                             </span>
+                            <input v-if="editingIndex === i && inputVisible"
+                            @keyup.enter="editTaskDb(i)"
+                            v-model="editedTask"
+                            type="text"
+                            :placeholder="task[i].task"
+                            class="me-2 p-1 rounded border-1">
 
-                            <button type="button"
-                            class="border-0"
-                            @click="removeTodo(i)">
-                                X
-                            </button>
+                            <div>
+                                
+
+
+                                <button type="button"
+                                class="border-0 me-2"
+                                @click="editTask(i)"> 
+                                    Edit
+                                </button>
+
+
+                                <button type="button"
+                                class="border-0"
+                                @click="removeTodo(i)">
+                                    X
+                                </button>
+                            </div>
                         </li>
                     </ul>
 
